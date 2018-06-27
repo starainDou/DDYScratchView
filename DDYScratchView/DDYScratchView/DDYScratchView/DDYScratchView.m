@@ -97,11 +97,11 @@
 
 #pragma mark -
 
-- (UIImage *)handleTouches:(NSSet *)touches
+- (UIImage *)handleTouches:(NSSet<UITouch *> *)touches
 {
     // 不要每次直接调用touches.anyObject，防止多次取到的数值不一样
     UITouch *touch = touches.anyObject;
-    CGPoint touchPoint = [touch locationInView:self];NSLog(@"%@",NSStringFromCGPoint(touchPoint));
+    CGPoint touchPoint = [touch locationInView:self];
     touchPoint.y = self.bounds.size.height - touchPoint.y;
     CGRect touchRect = CGRectMake(touchPoint.x - self.brashWidth/2., touchPoint.y - self.brashWidth/2., self.brashWidth, self.brashWidth);
     
